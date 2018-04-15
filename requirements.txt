@@ -1,2 +1,3 @@
 InstagramApi
 flask
+gunicorn
