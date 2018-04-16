@@ -27,7 +27,7 @@ def webhook():
 
 @app.route("/", methods=['GET'])
 def index():
-    return '<a href="/daily_post"> daily post </a>'
+    return '<a href="/daily_post"> Daily post - click here </a>'
 
 if __name__ == '__main__':
     app.run()
