@@ -11,7 +11,7 @@ quotes = [
 	"Good intentions are not enough. They've never put an onion in the soup yet.",
 	"Life is like an onion. You peel it off one layer at a time, and sometimes you weep.",
 	"It doesn't matter how precisely the onion is cut as long as the person chewing it is happy.",
-	"Opinions are like onions. They spell similarly, usually have many layers, and tend to make people cry."
+	"The real secret to guacamole is that you use exactly the elements that you need, which is cilantro, onion, tomato, and jalapenos. And, of course, avocado."
 ]
 
 @app.route('/daily_post', methods=['GET'])
@@ -31,4 +31,3 @@ def index():
 
 if __name__ == '__main__':
     app.run()
-    
