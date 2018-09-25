@@ -83,20 +83,17 @@ quotes = [
 
     "Good intentions are not enough. They've never put an onion in the soup yet. -Sonya Levien",
 
-    "The smell of onion is the most effective thing for relieving stinging eyes irritated by tear gas. -Sayed Kashua",
+    "It is hard to imagine civilization without onions. -Julia Child",
 
-    "I prepare my style of biriyani by sauting sliced onion, tomato, green chilli, "
-    "ginger garlic and add required water and rice. If I end up adding a tad too much of salt,"
-    " I used to add curd to balance it. -Vijay Sethupathi",
+    "I will not move my army without onions! -Ulysses S. Grant",
+
+    "If you hear an onion ring, answer it. -Anonymous",
+
+    "[on the BMW X3] If you are clinically insane, by which I mean you wake up in the morning and think you are an "
+    "onion, here's your car -Jeremy Clarkson",
 
     "The onion and its satin wrappings is among the most beautiful of vegetables and is the only one that represents "
-    "the essence of things. It can be said to have a soul.",
-
-    "Onions and bacon cooking up just makes your kitchen smell so good. In fact, one day "
-    "I'm going to come up with a room deodorizer that smells like bacon and onions. It's a fabulous smell. -Paula Deen",
-
-    "[on the BMW X3] If you are clinically insane, by which I mean you wake up in the morning and think you"
-    " are an onion, here's your car -Jeremy Clarkson"
+    "the essence of things. It can be said to have a soul. -My Summer in a Garden by Charles Dudley Warner "
 ]
 
 
