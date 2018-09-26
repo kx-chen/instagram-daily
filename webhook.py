@@ -1,6 +1,7 @@
 from flask import Flask, request, abort
 import os, datetime
 from InstagramAPI import InstagramAPI
+import requests
 
 app = Flask(__name__)
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -99,14 +100,26 @@ quotes = [
 
 @app.route('/daily_post', methods=['GET'])
 def webhook():
-    instagram = InstagramAPI(os.environ['username'], os.environ['password'])
-    instagram.login()  # login
+    try:
+        instagram = InstagramAPI(os.environ['username'], os.environ['password'])
+        instagram.login()  # login
 
-    day_number = datetime.date.today().strftime("%d")
-    photo_path = dir_path + '/onion.jpg'
-    caption = quotes[int(day_number) - 1] + " #dailyonion"
-    instagram.uploadPhoto(photo_path, caption=caption)
-    return 'Sucessfully posted.'
+        day_number = datetime.date.today().strftime("%d")
+        photo_path = dir_path + '/onion.jpg'
+        caption = quotes[int(day_number) - 1] + " #dailyonion"
+        instagram.uploadPhoto(photo_path, caption=caption)
+        return 'Sucessfully posted.'
+    except Exception:
+        payload = {
+            "app_key": "P7JRBmU9awdQTEMvG2hC",
+            "app_secret": "OZQcniD4lcPJajoJYzEJUjfz3pazmK8o58CtqZ7i6fRle73YULy4TcWm8m7Fkg40",
+            "target_type": "channel",
+            "target_alias": "IwA4Rw",
+            "content": "Critical Onion failure: failed to post daily onion!!"
+        }
+
+        r = requests.post("https://api.pushed.co/1/push", data=payload)
+        print(r.text)
 
 
 @app.route("/", methods=['GET'])
