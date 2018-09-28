@@ -29,10 +29,10 @@ quotes = [
 
     " 'It is hard to imagine civilization without onions.' -Julia Child",
 
-    """ "Onion skins very thin,
+    """ Onion skins very thin,
     Mild winter coming in.
     Onion skins very tough,
-    Coming winter very rough."
+    Coming winter very rough.
     -old English rhyme """,
 
     """ "If you hear an onion ring, answer it." -Anonymous """,
