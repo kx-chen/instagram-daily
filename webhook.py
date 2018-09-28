@@ -86,7 +86,12 @@ quotes = [
 
     "It is hard to imagine civilization without onions. -Julia Child",
 
-    "I will not move my army without onions! -Ulysses S. Grant",
+    """Onion skins very thin,
+    Mild winter coming in.
+    Onion skins very tough,
+    Coming winter very rough.
+    -old English rhyme""",
+
 
     "If you hear an onion ring, answer it. -Anonymous",
 
