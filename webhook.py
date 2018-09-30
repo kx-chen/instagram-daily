@@ -1,4 +1,4 @@
-from flask import Flask, request, abort
+from flask import Flask, request, jsonify
 import os, datetime, requests, json, traceback
 from InstagramAPI import InstagramAPI
 
@@ -12,6 +12,9 @@ def get_quotes_from_api():
 
 @app.route('/daily_post', methods=['GET'])
 def webhook():
+    if request.args.get('password') != os.environ['posting_password']:
+        response = jsonify({'status': '401', 'error': 'Unauthorized'})
+        return response, 401
     try:
         instagram = InstagramAPI(os.environ['username'], os.environ['password'])
         instagram.login()  # login
