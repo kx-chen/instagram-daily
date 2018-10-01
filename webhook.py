@@ -20,10 +20,9 @@ def send_error_pushed_notification():
     }
 
     r = requests.post("https://api.pushed.co/1/push", data=payload)
-
-
-
     print(r.text)
+
+
 @app.route("/", methods=['GET'])
 def index():
     return '<a href="/daily_post"> Daily post - click here </a>'
@@ -43,7 +42,7 @@ def webhook():
         quotes_json = get_quotes_from_api().text
         quotes_parsed = json.loads(quotes_json)
 
-        day_number = datetime.date.today().strftime("%B %d, %Y")
+        day_number = datetime.date.today().strftime("%B %d, %Y").replace(" 0", " ")
         photo_path = dir_path + '/onion.jpg'
         caption = "There's no quote for the onion today, enjoy!"
 
