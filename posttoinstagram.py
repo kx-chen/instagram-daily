@@ -2,6 +2,7 @@ from InstagramAPI import InstagramAPI
 from flask import jsonify, json
 import datetime, os
 import requests
+import traceback
 
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -34,17 +35,18 @@ def post_to_instagram(username, password, image, spreadsheet_id):
 
         day_number = datetime.date.today().strftime("%b %d, %Y").replace(" 0", " ")
         photo_path = dir_path + '/' + image
-        caption = ""
+        caption = "Ah yes... it's time for another post from me, {}!".format(username)
 
         for i in quotes_parsed['rows']:
             if i['scheduledpostingdate'] == day_number:
-                caption = i['caption']
+                if i['caption']:
+                    caption = i['caption']
 
         instagram.uploadPhoto(photo_path, caption=caption)
         response = jsonify({'status': '200', 'message': 'Posted.'})
         return response, 200
 
     except Exception:
-        # traceback.print_exc()
+        traceback.print_exc()
         send_error_pushed_notification()
         return 'Not worked.'
