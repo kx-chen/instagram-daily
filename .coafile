@@ -1,0 +1,3 @@
+[all]
+bears = PEP8Bear
+files = *.py

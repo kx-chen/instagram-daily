@@ -1,9 +1,12 @@
-from InstagramAPI import InstagramAPI
-from flask import jsonify, json
-import datetime, os
+import datetime
+import os
 import requests
 import traceback
 
+from flask import jsonify, json
+from InstagramAPI import InstagramAPI
+
+import sentence_generator
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -35,12 +38,15 @@ def post_to_instagram(username, password, image, spreadsheet_id):
 
         day_number = datetime.date.today().strftime("%b %d, %Y").replace(" 0", " ")
         photo_path = dir_path + '/' + image
-        caption = "Ah yes... it's time for another post from me, {}!".format(username)
+        caption = None
 
         for i in quotes_parsed['rows']:
             if i['scheduledpostingdate'] == day_number:
                 if i['caption']:
                     caption = i['caption']
+
+        if caption is None or caption == 'randomize':
+            caption = sentence_generator.main('onion.txt')
 
         instagram.uploadPhoto(photo_path, caption=caption)
         response = jsonify({'status': '200', 'message': 'Posted.'})
